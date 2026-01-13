@@ -22,19 +22,19 @@ A lightweight, real-time network listener designed to capture and log commands s
 
 ```bash
 g++ logger.cpp -o command_logger
-
+```
 ## Running the Logger
 
 Start the server:
 
 ```bash
 ./command_logger
-
+```
 In a separate terminal (or from a remote machine), send data using nc (Netcat) or telnet:
 
 ```bash
 echo "STOP_SERVICE" | nc localhost 8080
-
+```
 ### Example Output
 The logger provides the following terminal output format as of 2026:
 
@@ -46,7 +46,7 @@ Server listening on port 8080...
 Command: START_PROCESS
 Command: STATUS_CHECK
 [DISCONNECT] Client closed connection.
-
+```
 ## Security Considerations
 
 *   **Unencrypted:** This logger transmits data in plain text. Do not use it for sensitive credentials.
