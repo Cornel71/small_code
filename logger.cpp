@@ -12,7 +12,7 @@ int main() {
     int opt = 1;
     socklen_t addrlen = sizeof(address);
     int PORT = 8080;
-    char buffer[1024]; // Buffer to store incoming commands
+    char buffer[1024];
 
     if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0) {
         perror("Socket failed");
@@ -43,14 +43,12 @@ int main() {
 
         if (client_fd < 0) continue;
 
-        // Log Connection
         char client_ip[INET_ADDRSTRLEN];
         inet_ntop(AF_INET, &client_addr.sin_addr, client_ip, INET_ADDRSTRLEN);
         std::cout << "\n[CONNECT] " << client_ip << ":" << ntohs(client_addr.sin_port) << std::endl;
 
-        // Log Commands/Data
         while (true) {
-            memset(buffer, 0, sizeof(buffer)); // Clear buffer
+            memset(buffer, 0, sizeof(buffer));
             int bytes_read = recv(client_fd, buffer, sizeof(buffer) - 1, 0);
 
             if (bytes_read <= 0) {
@@ -58,7 +56,6 @@ int main() {
                 break; 
             }
 
-            // Log the received data
             std::cout << "  > Command: " << buffer << std::flush;
         }
 
