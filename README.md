@@ -47,7 +47,7 @@ Command: START_PROCESS
 Command: STATUS_CHECK
 [DISCONNECT] Client closed connection.
 ```
-## Security Considerations
+## 🛡️ Security Considerations
 
 *   **Unencrypted:** This logger transmits data in plain text. Do not use it for sensitive credentials.
 *   **Binding:** Currently set to `INADDR_ANY`. For security in 2026, it is recommended to bind to `127.0.0.1` unless external access is required.
